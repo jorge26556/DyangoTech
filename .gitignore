@@ -1,0 +1,30 @@
+# === Secretos: NUNCA subir ===
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+config.local.js
+
+# === Sistema operativo ===
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# === Editores ===
+.vscode/
+.idea/
+*.swp
+*~
+
+# === Herramientas / temporales ===
+node_modules/
+.cache/
+*.log
+tmp/
+temp/
+
+# === Claude Code ===
+.claude/settings.local.json
