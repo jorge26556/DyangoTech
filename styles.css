@@ -636,6 +636,14 @@ button { font-family: inherit; cursor: pointer; }
 
 /* Proyecto destacado: ocupa toda la fila; en desktop, captura a la izquierda y texto a la derecha */
 .card-proj-feature { grid-column: 1 / -1; }
+/* Tablet (2 columnas): el último proyecto ocupa la fila completa para no quedar solo */
+@media (min-width: 700px) and (max-width: 999px) {
+  .grid.proj-grid > .card-proj:last-child:nth-child(even) { grid-column: 1 / -1; }
+}
+/* Desktop: el destacado arriba y los demás en 3 columnas */
+@media (min-width: 1000px) {
+  .grid.proj-grid { grid-template-columns: repeat(3, 1fr); }
+}
 @media (min-width: 1000px) {
   .card-proj-feature { flex-direction: row; }
   .card-proj-feature .proj-shot {
