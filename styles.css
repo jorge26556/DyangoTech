@@ -172,6 +172,19 @@ button { font-family: inherit; cursor: pointer; }
 .btn-cta:hover svg { transform: translateX(3px); }
 .btn-cta:active { transform: translateY(0); }
 
+.btn-ghost {
+  background: rgba(255,255,255,.03);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-lt);
+}
+.btn-ghost:hover { background: rgba(255,255,255,.07); border-color: var(--accent-tint-2); }
+.btn-outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border-lt);
+}
+.btn-outline:hover { border-color: var(--accent-soft); background: var(--accent-tint); }
+
 .btn-sm    { padding: 10px 18px;  font-size: .9rem; }
 .btn-lg    { padding: 17px 30px;  font-size: 1.06rem; }
 .btn-block { display: flex; width: 100%; padding: 16px 24px; }
@@ -213,7 +226,7 @@ button { font-family: inherit; cursor: pointer; }
 .header-nav a { color: var(--color-text-soft); transition: color .15s ease; }
 .header-nav a:hover { color: var(--color-text); }
 
-.header-cta { display: none; }
+.header-cta { display: inline-flex; }
 
 /* ===================== HERO ===================== */
 .hero {
@@ -287,7 +300,21 @@ button { font-family: inherit; cursor: pointer; }
   max-width: 54ch;
   text-wrap: pretty;
 }
-.hero-cta { margin-top: 32px; }
+.hero-cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-trust {
+  display: flex; flex-wrap: wrap; gap: 8px 22px;
+  margin-top: 22px;
+  font-size: .9rem; color: var(--color-text-soft);
+}
+.hero-trust li { display: inline-flex; align-items: center; gap: 8px; }
+.hero-trust li::before {
+  content: "";
+  width: 16px; height: 16px; border-radius: 50%; flex: 0 0 auto;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237ea3ff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 10px no-repeat,
+    var(--accent-tint);
+  border: 1px solid var(--accent-tint-2);
+}
 .hero-note { font-size: .88rem; color: var(--color-text-dim); margin-top: 14px; }
 
 /* Chips de tecnologías: refuerzan la amplitud de servicios */
@@ -399,70 +426,70 @@ button { font-family: inherit; cursor: pointer; }
   padding: 4px 9px;
 }
 
-/* ===================== OFERTA ANCLA ===================== */
-.offer-wrap { display: flex; justify-content: center; }
-.offer-card {
-  position: relative;
-  width: 100%;
-  max-width: 470px;
+/* ===================== PLANES ===================== */
+.price-grid { grid-template-columns: 1fr; align-items: stretch; }
+.section-lead + .price-grid { margin-top: 48px; }
+.price-card { display: flex; flex-direction: column; padding: 30px; }
+.price-card:hover { transform: translateY(-4px); }
+.price-card.is-featured {
   background:
     linear-gradient(165deg, var(--color-surface-2), var(--color-surface)) padding-box,
-    linear-gradient(160deg, var(--accent-tint-2), var(--color-border) 55%) border-box;
-  border: 1px solid transparent;
-  border-radius: var(--radius-lg);
-  padding: 34px;
-  box-shadow: var(--shadow-lg);
+    linear-gradient(160deg, var(--color-accent), var(--accent-tint-2) 45%, var(--color-border) 80%) border-box;
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--accent-tint), 0 20px 60px -20px var(--accent-glow);
 }
-/* halo detrás de la tarjeta de precio */
-.offer-card::after {
+.price-card.is-featured::after {
   content: "";
-  position: absolute; inset: -1px;
+  position: absolute; inset: 0;
   border-radius: inherit;
-  background: radial-gradient(420px 180px at 50% 0%, var(--accent-tint), transparent 70%);
-  pointer-events: none; z-index: 0;
+  background: radial-gradient(380px 160px at 50% 0%, var(--accent-tint), transparent 70%);
+  pointer-events: none;
 }
-.offer-card > * { position: relative; z-index: 1; }
+.price-card > * { position: relative; z-index: 1; }
 
-.offer-head {
-  display: flex; flex-wrap: wrap; align-items: center;
-  justify-content: space-between; gap: 10px;
+.price-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.price-name { font-size: 1.2rem; font-weight: 750; letter-spacing: -0.02em; }
+.price-tag {
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(180deg, var(--color-accent-hover), var(--color-accent-deep));
+  padding: 5px 11px; border-radius: 999px;
+  box-shadow: var(--shadow-cta);
 }
-.offer-badge {
-  font-weight: 700; font-size: .95rem;
-  color: var(--accent-soft);
-  background: var(--accent-tint);
-  border: 1px solid var(--accent-tint-2);
-  padding: 6px 15px; border-radius: 999px;
-}
-.offer-tag { font-size: .78rem; color: var(--color-text-dim); }
+.price-desc { color: var(--color-text-soft); margin-top: 12px; font-size: .96rem; min-height: 4.7em; }
 
-.offer-desc { color: var(--color-text-soft); margin-top: 20px; }
-
-.offer-price { display: flex; align-items: baseline; gap: 7px; margin: 24px 0 4px; }
-.offer-price-from { color: var(--color-text-dim); font-size: .95rem; }
-.offer-price-amount {
-  font-size: 2.7rem; font-weight: 800; letter-spacing: -0.035em;
-  line-height: 1;
+.price-amount-row {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px;
+  margin: 22px 0 0; padding-bottom: 22px;
+  border-bottom: 1px solid var(--color-border);
 }
-.offer-price-period { color: var(--color-text-soft); font-weight: 600; }
+.price-from { color: var(--color-text-dim); font-size: .92rem; }
+.price-from:empty { display: none; }
+.price-amount { font-size: 2.3rem; font-weight: 800; letter-spacing: -0.035em; line-height: 1; }
+.price-period { color: var(--color-text-soft); font-weight: 600; font-size: .95rem; }
 
-.offer-list { margin: 24px 0 28px; display: grid; gap: 13px; }
-.offer-note {
-  text-align: center;
-  font-size: .84rem;
-  color: var(--color-text-dim);
-  margin-top: 14px;
-}
-.offer-list li { position: relative; padding-left: 30px; }
-.offer-list li::before {
+.price-list { margin: 22px 0 28px; display: grid; gap: 12px; font-size: .96rem; }
+.price-list li { position: relative; padding-left: 28px; color: var(--color-text-soft); }
+.price-list li::before {
   content: "";
-  position: absolute; left: 0; top: 7px;
+  position: absolute; left: 0; top: 5px;
   width: 18px; height: 18px; border-radius: 50%;
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 12px no-repeat,
-    linear-gradient(160deg, var(--color-accent-hover), var(--color-accent-deep));
-  box-shadow: 0 2px 8px var(--accent-glow);
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237ea3ff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 11px no-repeat,
+    var(--accent-tint);
+  border: 1px solid var(--accent-tint-2);
 }
+.is-featured .price-list li { color: var(--color-text); }
+.price-card .btn-block { margin-top: auto; }
+.price-note { text-align: center; font-size: .82rem; color: var(--color-text-dim); margin-top: 12px; }
+
+/* CTA intermedio (bajo proyectos) */
+.section-cta {
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  margin-top: 44px; text-align: center;
+}
+.section-cta p { color: var(--color-text-soft); font-weight: 500; }
+.section-cta .btn { padding: 14px 26px; }
 
 /* ===================== CÓMO FUNCIONA ===================== */
 .steps { display: grid; gap: 20px; grid-template-columns: 1fr; }
@@ -572,6 +599,22 @@ button { font-family: inherit; cursor: pointer; }
 }
 .card-proj p { color: var(--color-text-soft); }
 .card-proj .card-tags { margin-top: auto; padding-top: 18px; }
+
+/* Proyecto destacado: ocupa toda la fila; en desktop, captura a la izquierda y texto a la derecha */
+.card-proj-feature { grid-column: 1 / -1; }
+@media (min-width: 1000px) {
+  .card-proj-feature { flex-direction: row; }
+  .card-proj-feature .proj-shot {
+    flex: 0 0 58%;
+    aspect-ratio: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--color-border);
+  }
+  .card-proj-feature .proj-shot::after {
+    background: linear-gradient(90deg, transparent 60%, rgba(10,14,20,.45));
+  }
+  .card-proj-feature .proj-body { padding: 34px 34px 32px; justify-content: center; }
+}
 
 /* ===================== TESTIMONIOS ===================== */
 .card-testi { display: flex; flex-direction: column; gap: 22px; }
@@ -720,6 +763,18 @@ button { font-family: inherit; cursor: pointer; }
 }
 .footer-copy { color: var(--color-text-dim); font-size: .84rem; }
 
+/* ===================== WHATSAPP FLOTANTE ===================== */
+.wa-float {
+  position: fixed; right: 20px; bottom: 20px; z-index: 60;
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #25d366; color: #fff;
+  box-shadow: 0 8px 24px rgba(37,211,102,.35), 0 2px 8px rgba(0,0,0,.4);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.wa-float svg { width: 28px; height: 28px; }
+.wa-float:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 12px 30px rgba(37,211,102,.45), 0 2px 8px rgba(0,0,0,.4); }
+
 /* ===================== SCROLL REVEAL ===================== */
 .reveal {
   opacity: 0;
@@ -736,6 +791,11 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 540px) {
   .hero-cta .btn-lg,
   .final-cta .btn-lg { width: 100%; }
+  .header-cta { padding: 8px 14px; font-size: .84rem; }
+  .brand-name { font-size: 1.08rem; }
+  .price-card { padding: 24px; }
+  .price-desc { min-height: 0; }
+  .wa-float { right: 14px; bottom: 14px; width: 52px; height: 52px; }
   .btn-lg { padding: 16px 16px; font-size: .96rem; }
   /* la flecha se oculta en pantallas angostas para que el texto quepa en una línea */
   .btn-lg svg { display: none; }
@@ -754,7 +814,7 @@ button { font-family: inherit; cursor: pointer; }
   /* 5º servicio: ocupa el ancho completo bajo la rejilla 2x2 */
   .card-wide { grid-column: 1 / -1; }
   .card-wide p { max-width: 62ch; }
-  .steps  { grid-template-columns: repeat(3, 1fr); }
+  .steps  { grid-template-columns: repeat(2, 1fr); }
   .section { padding: 88px 0; }
   .final-card { padding: 68px 48px; }
   .footer-top { grid-template-columns: 1.6fr 1fr 1fr; }
@@ -770,6 +830,11 @@ button { font-family: inherit; cursor: pointer; }
   .hero-inner { grid-template-columns: 1.05fr .95fr; gap: 56px; }
   .hero-visual { display: block; }
   .card { padding: 30px; }
+  .card-proj { padding: 0; }
+  .price-grid { grid-template-columns: repeat(3, 1fr); }
+  .price-card.is-featured { transform: translateY(-10px); }
+  .price-card.is-featured:hover { transform: translateY(-14px); }
+  .steps { grid-template-columns: repeat(4, 1fr); }
 }
 
 /* --- Accesibilidad: menos movimiento --- */

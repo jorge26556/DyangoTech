@@ -1,7 +1,7 @@
 # DyangoTech — Landing page
 
-Sitio de una sola página para DyangoTech: estudio de automatización de procesos
-y desarrollo de software a medida.
+Sitio de una sola página para DyangoTech: estudio de automatización de procesos,
+desarrollo de software a medida y diseño web.
 
 HTML, CSS y JavaScript puros. **Sin build, sin dependencias, sin Node.**
 Los archivos se publican tal cual.
@@ -27,6 +27,9 @@ de `:root`. Se usa exclusivamente en los botones de llamado a la acción.
 
 **Cambiar el correo:** reemplazar `contacto@dyangotech.com` en `index.html`.
 
+**Cambiar precios de los planes:** sección `#planes` de `index.html`. El precio del
+sitio web también aparece en la pregunta "¿Cuánto cuesta una página web?" (FAQ visible y JSON-LD).
+
 **Agregar un proyecto:** duplicar un bloque `<article class="card card-proj">`
 en la sección `#proyectos`. Las imágenes van en `img/` a 880×420.
 
@@ -39,5 +42,6 @@ Subir el contenido de la raíz al hosting. No hay paso de compilación.
 
 ## Antes de publicar
 
+- [ ] Confirmar el precio del plan "Sitio web" (hoy USD 250 como referencia)
 - [ ] Confirmar el dominio real en `og:url`, `canonical` y `sitemap.xml`
 - [ ] Verificar que `og-image.png` quede accesible en la raíz del dominio
