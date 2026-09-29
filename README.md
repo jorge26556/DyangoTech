@@ -11,6 +11,7 @@ Los archivos se publican tal cual.
 | Archivo | Qué es |
 |---|---|
 | `index.html` | Toda la página + datos estructurados JSON-LD para SEO |
+| `en/index.html` | Versión en inglés (mismos estilos y script, rutas con `../`) |
 | `styles.css` | Estilos. La paleta está en variables CSS al inicio (`:root`) |
 | `script.js` | Acordeón del FAQ, header al hacer scroll, animaciones de entrada |
 | `logo.svg` | Logo / favicon |
@@ -23,13 +24,18 @@ Los archivos se publican tal cual.
 **Cambiar el color de acento:** en `styles.css`, variable `--color-accent` dentro
 de `:root`. Se usa exclusivamente en los botones de llamado a la acción.
 
-**Cambiar el WhatsApp:** reemplazar `573133448250` en todo `index.html`.
+**Cambiar el WhatsApp:** reemplazar `573133448250` en `index.html` y `en/index.html`.
 
-**Cambiar el correo:** reemplazar `contacto@dyangotech.com` en `index.html`.
+**Cambiar el correo:** reemplazar `developmentteam@dyangotech.com` en `index.html` y `en/index.html`.
 
 **Cambiar precios de los planes:** sección `#planes` de `index.html`. Modelo: pago único por
 proyecto + mantenimiento mensual opcional. Los precios también aparecen en el FAQ
 ("¿Cuánto cuesta una página web?" y "¿Tengo que pagar una mensualidad?"), visible y JSON-LD.
+
+**Idiomas:** el sitio es bilingüe. `index.html` (español) y `en/index.html` (inglés)
+son páginas separadas enlazadas con `hreflang` y el selector ES | EN del header.
+Cualquier cambio de texto, precio o FAQ hay que hacerlo en **los dos archivos**
+(incluido su JSON-LD).
 
 **Agregar un proyecto:** duplicar un bloque `<article class="card card-proj">`
 en la sección `#proyectos`. Las imágenes van en `img/` a 880×420.

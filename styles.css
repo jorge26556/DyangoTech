@@ -228,6 +228,29 @@ button { font-family: inherit; cursor: pointer; }
 
 .header-cta { display: inline-flex; }
 
+/* Selector de idioma ES | EN */
+.header-actions { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
+.lang-switch {
+  display: inline-flex; align-items: center;
+  padding: 3px;
+  border: 1px solid var(--color-border-lt);
+  border-radius: 999px;
+  background: rgba(255,255,255,.03);
+  font-size: .76rem; font-weight: 700; letter-spacing: .06em;
+}
+.lang-switch a {
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: var(--color-text-dim);
+  transition: color .15s ease, background .15s ease;
+}
+.lang-switch a:hover { color: var(--color-text); }
+.lang-switch a[aria-current="page"] {
+  color: var(--color-text);
+  background: var(--accent-tint-2);
+  box-shadow: inset 0 0 0 1px var(--accent-tint-2);
+}
+
 /* ===================== HERO ===================== */
 .hero {
   position: relative;
@@ -803,6 +826,8 @@ button { font-family: inherit; cursor: pointer; }
   .hero-cta .btn-lg,
   .final-cta .btn-lg { width: 100%; }
   .header-cta { padding: 8px 14px; font-size: .84rem; }
+  .header-actions { gap: 8px; }
+  .lang-switch a { padding: 5px 8px; }
   .brand-name { font-size: 1.08rem; }
   .price-card { padding: 24px; }
   .price-desc { min-height: 0; }
