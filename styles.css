@@ -522,7 +522,7 @@ button { font-family: inherit; cursor: pointer; }
   display: flex; flex-direction: column; align-items: center; gap: 14px;
   margin-top: 44px; text-align: center;
 }
-.section-cta p { color: var(--color-text-soft); font-weight: 500; }
+.section-cta p { color: var(--color-text-soft); font-weight: 500; max-width: 46ch; text-wrap: balance; }
 .section-cta .btn { padding: 14px 26px; }
 
 /* ===================== CÓMO FUNCIONA ===================== */
